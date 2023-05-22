@@ -8,19 +8,20 @@
 
 void quick_sort(int *array, size_t size)
 {
-size_t j = 0, i = j - 1, temp;
+    size_t j = 0, i = j - 1, temp;
 
-for (j = 0; i < size - 1; j++)
-{
-if (array[size] < array[j])
-{
-
-i++;
-temp = array[i];
-array[i] = array[j];
-array[j] = temp;
-print_array(array, size);
-}
-}
-
+    if (array)
+    {
+        for (j = 0; i < size - 1; j++)
+        {
+            if (array[size] < array[j])
+            {
+                i++;
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                print_array(array, size);
+            }
+        }
+    }
 }
