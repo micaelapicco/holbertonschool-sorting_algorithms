@@ -5,13 +5,15 @@
  *@a1: the first value to swap
  *@a2: the second value to swap
  */
-void swapArray(int *array, int a1, int a2)
+void swapArray(int *array, size_t a1, size_t a2)
 {
-size_t temp;
-
+size_t temp = 0;
+if (a1 != a2)
+{
 temp = array[a1];
 array[a1] = array[a2];
 array[a2] = temp;
+}
 }
 
 
@@ -21,20 +23,34 @@ array[a2] = temp;
  *@size: the size of the array
  */
 
-void quick_sort(int *array, size_t size)
+size_t quickpivot(int *array, size_t size, size_t start, size_t end)
 {
-    size_t j = 0, i = j - 1, pivot = size;
+     size_t j, i, pivot;
 
     if (array)
     {
-        for (j = 0; j < size - 1; j++)
+        pivot = end;
+        i = start -1;
+        for (j = start; j < end; j++)
         {
             if (array[pivot] > array[j])
             {
                 i++;
-                swapArray(array,i, j);
+                swapArray(array,j,i);
                 print_array(array, size);
             }
         }
+        i++;
+        swapArray(array,j,i);
+        print_array(array, size);
     }
+    return(i);
+}
+
+void quick_sort(int *array, size_t size)
+{
+    size_t start = 0, end = size - 1;
+    end = quickpivot(array, size, start, end);
+    start = quickpivot(array, size, start, end);
+    quickpivot(array, size, start, size -1);
 }
