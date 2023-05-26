@@ -29,5 +29,8 @@ void insertion_sort_list(listint_t **list);
 void swap(listint_t *current);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void swapArray(int *array, int a1, int a2, int size);
+int quickpivot(int *array, size_t size, int start, int end);
+void recursionsort(int *array, size_t size, int start, int end);
 #endif
 

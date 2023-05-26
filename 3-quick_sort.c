@@ -30,7 +30,7 @@ void swapArray(int *array, int a1, int a2, int size)
  * Return: the pivot
  */
 
-size_t quickpivot(int *array, size_t size, int start, int end)
+int quickpivot(int *array, size_t size, int start, int end)
 {
 	int j, i, pivot;
 
