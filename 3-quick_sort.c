@@ -11,12 +11,11 @@ void swapArray(int *array, int a1, int a2, int size)
 {
 	int temp = 0;
 
-	if (a1 != a2)
+	if (array[a1] != array[a2])
 	{
 		temp = array[a1];
 		array[a1] = array[a2];
 		array[a2] = temp;
-
 		print_array(array, size);
 	}
 }
